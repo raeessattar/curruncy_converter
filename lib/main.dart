@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => MyHomePage(title: 'Currency Converter'),
-        '/second': (context) => ShowList()
+        '/': (context) => const MyHomePage(title: 'Currency Converter'),
+        '/second': (context) => const ShowList()
       },
       title: 'Currency Converter App',
       theme: ThemeData(
@@ -81,25 +81,25 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Column(children: [
-        SizedBox(
+        const SizedBox(
           height: 40,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             if (exchangeRatesList == null)
-              Text(
+              const Text(
                 'Loading..',
               )
             else ...[
               DropdownButton<Conversion>(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
                 value: base,
-                hint: Text("$baseCurrencyIconHint"),
+                hint: const Text(baseCurrencyIconHint),
                 items: exchangeRatesList!.conversion
                     .map<DropdownMenuItem<Conversion>>((e) => DropdownMenuItem(
-                          child: Text("${e.code}"),
                           value: e,
+                          child: Text(e.code),
                         ))
                     .toList(),
                 onChanged: (Conversion? currency) {
@@ -107,14 +107,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   setState(() {});
                 },
               ),
-              Icon(Icons.currency_exchange),
+              const Icon(Icons.currency_exchange),
               DropdownButton<Conversion>(
                 value: target,
-                hint: Text("$targetCurrencyIconHint"),
+                hint: const Text(targetCurrencyIconHint),
                 items: exchangeRatesList!.conversion
                     .map<DropdownMenuItem<Conversion>>((e) => DropdownMenuItem(
-                          child: Text("${e.code}"),
                           value: e,
+                          child: Text(e.code),
                         ))
                     .toList(),
                 onChanged: (Conversion? currency) {
@@ -125,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ]
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 25,
         ),
         Row(
@@ -138,9 +138,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   keyboardType: TextInputType.number,
                   inputFormatters: [
                     FilteringTextInputFormatter.allow(
-                        RegExp('[0-9]+[.]{0,1}[0-9]*')),
+                        RegExp(r'^\d*\.?\d{0,2}')),
                   ],
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Enter a number',
                   ),
@@ -149,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             ElevatedButton(
-              child: Text('Convert'),
+              child: const Text('Convert'),
               onPressed: () {
                 enteredValue = double.parse(myController.text);
                 convertedValue = enteredValue! * (target!.value).toDouble();
@@ -166,17 +166,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     border: Border.all(width: 1),
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: Text('${convertedValue ?? ''}'),
+                  child: Center(
+                      child:
+                          Text(convertedValue?.toStringAsFixed(2) ?? '')),
                 ),
               ),
             )
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         ElevatedButton(
-          child: Text('See Exchange Rates'),
+          child: const Text('See Exchange Rates'),
           onPressed: () {
             Navigator.pushNamed(context, '/second', arguments: base?.code);
             setState(() {});

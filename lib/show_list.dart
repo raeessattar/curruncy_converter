@@ -40,18 +40,18 @@ class _ShowListState extends State<ShowList> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('List '),
+        title: const Text('List '),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
-            Text('Base Currency: $arg', style: TextStyle(fontSize: 20)),
+            Text('Base Currency: $arg', style: const TextStyle(fontSize: 20)),
             if (exchangeRates == null)
-              Text(
+              const Text(
                 'Data is loading',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               )
@@ -70,13 +70,13 @@ class _ShowListState extends State<ShowList> {
                         //       'https://img.freepik.com/free-vector/illustration-usa-flag_53876-18165.jpg?w=826&t=st=1709193088~exp=1709193688~hmac=af023f594cc5277973615956eef02d53d4bdd75cbbdfc592640aed46533975f0'),
                         // ),
                         title: Text(
-                          '${exchangeRates!.conversion[index].code}',
-                          style: TextStyle(
+                          exchangeRates!.conversion[index].code,
+                          style: const TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         trailing: Text(
                           '${exchangeRates!.conversion[index].value}',
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 20, fontWeight: FontWeight.normal),
                         ),
                       );
