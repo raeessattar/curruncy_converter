@@ -19,7 +19,7 @@ Contributions are welcome! If you find any bugs or have suggestions for improvem
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Screenshots
-![Screenshot 1](screenshots\HomeScreen.jpg)
-![Screenshot 2](screenshots\SelectCurrency.jpg)
-![Screenshot 3](screenshots\EnterValue.jpg)
-![Screenshot 4](screenshots\SeeList.jpg)
+<img src="screenshots\HomeScreen.jpg" alt="HomeScreen" width="300">
+<img src="screenshots\SelectCurrency.jpg" alt="SelectCurreny" width="300">
+<img src="screenshots\EnterValue.jpg" alt="EnterValue" width="300">
+<img src="screenshots\SeeList.jpg" alt="SeeList" width="300">
