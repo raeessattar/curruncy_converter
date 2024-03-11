@@ -63,12 +63,6 @@ class _ShowListState extends State<ShowList> {
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
                       return ListTile(
-                        // leading: Container(
-                        //   width: 30,
-                        //   height: 30,
-                        //   child: Image.network(
-                        //       'https://img.freepik.com/free-vector/illustration-usa-flag_53876-18165.jpg?w=826&t=st=1709193088~exp=1709193688~hmac=af023f594cc5277973615956eef02d53d4bdd75cbbdfc592640aed46533975f0'),
-                        // ),
                         title: Text(
                           exchangeRates!.conversion[index].code,
                           style: const TextStyle(

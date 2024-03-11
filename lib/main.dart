@@ -142,7 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    hintText: 'Enter a number',
+                    hintText: 'Enter Value',
                   ),
                   controller: myController,
                 ),
@@ -167,8 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                   child: Center(
-                      child:
-                          Text(convertedValue?.toStringAsFixed(2) ?? '')),
+                      child: Text(convertedValue?.toStringAsFixed(2) ?? '')),
                 ),
               ),
             )
